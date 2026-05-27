@@ -1804,47 +1804,52 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
         </div>
       </div>
 
-      <div class="contact-form reveal delay-1">
+      <form id="inquiry-form" class="contact-form reveal delay-1" novalidate>
+        <input type="hidden" name="access_key" value="45579086-9f62-4899-a43d-4fe11bab4cae" />
+        <input type="hidden" name="subject" value="New Enquiry — Pincraft" />
+        <input type="hidden" name="from_name" value="Pincraft Website" />
+        <input type="checkbox" name="botcheck" style="display:none" />
+
         <h3>Send an enquiry</h3>
         <p>Tell us about your project — we'll come back with samples and a quote.</p>
 
         <div class="form-row">
           <div class="field">
             <label for="fname">First Name</label>
-            <input id="fname" type="text" placeholder="Jane" />
+            <input id="fname" name="First Name" type="text" placeholder="Jane" required />
           </div>
           <div class="field">
             <label for="lname">Last Name</label>
-            <input id="lname" type="text" placeholder="Doe" />
+            <input id="lname" name="Last Name" type="text" placeholder="Doe" />
           </div>
         </div>
 
         <div class="form-row">
           <div class="field">
             <label for="company">Company / Brand</label>
-            <input id="company" type="text" placeholder="Your brand" />
+            <input id="company" name="Company" type="text" placeholder="Your brand" />
           </div>
           <div class="field">
             <label for="country">Country</label>
-            <input id="country" type="text" placeholder="United States" />
+            <input id="country" name="Country" type="text" placeholder="United States" />
           </div>
         </div>
 
         <div class="form-row">
           <div class="field">
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@brand.com" />
+            <input id="email" name="email" type="email" placeholder="you@brand.com" required />
           </div>
           <div class="field">
             <label for="phone">Phone</label>
-            <input id="phone" type="tel" placeholder="+1 ..." />
+            <input id="phone" name="Phone" type="tel" placeholder="+1 ..." />
           </div>
         </div>
 
         <div class="form-row">
           <div class="field full">
             <label for="interest">I'm Interested In</label>
-            <select id="interest">
+            <select id="interest" name="Interest">
               <option>OEM Manufacturing</option>
               <option>Private Label</option>
               <option>Bulk Supply (Spa / Salon)</option>
@@ -1858,14 +1863,15 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
         <div class="form-row">
           <div class="field full">
             <label for="message">Tell us about your project</label>
-            <textarea id="message" placeholder="Volumes, timeline, finishes you have in mind..."></textarea>
+            <textarea id="message" name="message" placeholder="Volumes, timeline, finishes you have in mind..." required></textarea>
           </div>
         </div>
 
-        <button class="btn btn-primary" onclick="alert('Form submission stub — connect to your backend or service like Formspree, Getform, or Netlify Forms.')">
+        <button type="submit" class="btn btn-primary">
           Send Enquiry <span class="arrow">→</span>
         </button>
-      </div>
+        <p id="form-status" style="display:none; margin-top:1rem; font-size:0.92rem;"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -1957,6 +1963,35 @@ window.addEventListener('scroll', () => {
     nav.style.padding = '1.25rem 0';
     nav.style.background = 'rgba(242, 235, 226, 0.85)';
   }
+});
+</script>
+
+<script>
+document.getElementById('inquiry-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('[type=submit]');
+  const status = document.getElementById('form-status');
+  btn.disabled = true;
+  btn.innerHTML = 'Sending…';
+  status.style.display = 'none';
+
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: new FormData(this)
+  });
+  const data = await res.json();
+
+  status.style.display = 'block';
+  if (data.success) {
+    status.style.color = 'var(--rose)';
+    status.textContent = 'Thank you — we\'ll be in touch shortly.';
+    this.reset();
+  } else {
+    status.style.color = '#c0392b';
+    status.textContent = 'Something went wrong. Please email us directly at info@pincraft.in.';
+  }
+  btn.disabled = false;
+  btn.innerHTML = 'Send Enquiry <span class="arrow">→</span>';
 });
 </script>
 </body>
