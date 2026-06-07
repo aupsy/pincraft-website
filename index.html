@@ -1292,6 +1292,46 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 }
 
 /* =========================================================
+   CUSTOM PACKAGING
+   ========================================================= */
+.packaging { background: var(--beige-50); }
+.pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.pkg-card {
+  background: var(--beige-100);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.5s;
+}
+.pkg-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -20px rgba(26,22,20,0.12);
+}
+.pkg-img .img-placeholder { border-radius: 0; border: none; border-bottom: 1px solid var(--line); }
+.pkg-body { padding: 1.75rem; }
+.pkg-body h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.35rem;
+  margin-bottom: 0.65rem;
+}
+.pkg-body > p {
+  color: var(--ink-soft);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+.pkg-cta { text-align: center; margin-top: 3.5rem; }
+@media (max-width: 860px) {
+  .pkg-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
    REVEAL ANIMATIONS
    ========================================================= */
 .reveal {
@@ -1317,6 +1357,7 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
       <a href="#about">About</a>
       <a href="#products">Products</a>
       <a href="#collections">Collections</a>
+      <a href="#packaging">Packaging</a>
       <a href="#services">B2B Services</a>
       <a href="#global">Global Reach</a>
       <a href="#contact" class="nav-cta">Send Enquiry</a>
@@ -1485,7 +1526,7 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
     </div>
 
     <div class="cat-grid">
-      <div class="cat-card reveal">
+      <div class="cat-card reveal" id="cat-tweezers">
         <div class="cat-img-wrap">
           <img src="images/product-tweezers.jpg" alt="Pincraft tweezer with dotted etched pattern on a dark background" />
         </div>
@@ -1496,7 +1537,7 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
         <p>Slant, straight, pointed, round, hook & more across 9 body types and 4 finishes.</p>
       </div>
 
-      <div class="cat-card reveal delay-1">
+      <div class="cat-card reveal delay-1" id="cat-blackhead">
         <div class="cat-img-wrap">
           <img src="images/product-blackhead-removers.jpg" alt="Pincraft double-ended blackhead remover in brushed stainless steel" />
         </div>
@@ -1507,7 +1548,7 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
         <p>Round, hexagonal and square body designs with twisted and pin-tip options.</p>
       </div>
 
-      <div class="cat-card reveal delay-2">
+      <div class="cat-card reveal delay-2" id="cat-cuticle">
         <div class="cat-img-wrap">
           <img src="images/product-cuticle-tools.jpg" alt="Pincraft cuticle pusher with gold finish and textured black grip" />
         </div>
@@ -1518,7 +1559,7 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
         <p>Nippers in 3mm, 5mm and 7mm tips. Pushers & cutters in 120 and 130mm lengths.</p>
       </div>
 
-      <div class="cat-card reveal delay-3">
+      <div class="cat-card reveal delay-3" id="cat-guasha">
         <div class="cat-img-wrap">
           <img src="images/product-gua-sha.jpg" alt="Pincraft heart-shaped gua sha tool in polished stainless steel" />
         </div>
@@ -1744,6 +1785,73 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
           <li>Trade-account terms</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     CUSTOM PACKAGING
+     =========================================================== -->
+<section class="packaging" id="packaging">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Custom Packaging</span>
+      <h2 class="display-2">Your brand,<br/><em class="italic-accent">beautifully presented.</em></h2>
+      <p>Every Pincraft product can be dressed in packaging built around your brand — from minimal retail cards to premium gift boxes. We handle design, print and assembly so your product arrives shelf-ready.</p>
+    </div>
+
+    <div class="pkg-grid">
+      <div class="pkg-card reveal">
+        <div class="pkg-img">
+          <img src="images/packaging-retail-box.jpg" alt="Pincraft retail boxes open showing tweezers inside" style="width:100%; height:260px; object-fit:cover; display:block;" />
+        </div>
+        <div class="pkg-body">
+          <h3>Retail Box</h3>
+          <p>Custom-printed folded boxes in any dimension — suited for single tools, gift sets and travel kits. Available in matt, gloss and soft-touch lamination with full-colour branding.</p>
+          <ul class="serv-list">
+            <li>Full-colour custom print</li>
+            <li>Matt, gloss & soft-touch finishes</li>
+            <li>Single piece or full gift sets</li>
+            <li>Insert tray options available</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pkg-card reveal delay-1">
+        <div class="pkg-img">
+          <img src="images/Packaging-card-backing.jpg" alt="Pincraft card backing retail packaging" style="width:100%; display:block;" />
+        </div>
+        <div class="pkg-body">
+          <h3>Card Backing</h3>
+          <p>Retail display cards with your logo, product details and barcode — ready for hook or peg display. The most cost-effective option for high-volume SKUs.</p>
+          <ul class="serv-list">
+            <li>Hook & peg display ready</li>
+            <li>Logo & barcode placement</li>
+            <li>Blister or heat-seal options</li>
+            <li>Low MOQ available</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pkg-card reveal delay-2">
+        <div class="pkg-img">
+          <img src="images/Gua Sha -Packaging.jpg" alt="Pincraft gua sha packaging with essential oils" style="width:100%; height:320px; object-fit:cover; object-position:right center; display:block;" />
+        </div>
+        <div class="pkg-body">
+          <h3>Gua Sha Packaging</h3>
+          <p>Standalone or combo packaging for our gua sha range — pairing the tool with essential oils for a complete wellness gift. Ideal for luxury retail, spa channels and gifting occasions.</p>
+          <ul class="serv-list">
+            <li>Standalone gua sha box</li>
+            <li>Combo set with essential oils</li>
+            <li>Premium gift-ready presentation</li>
+            <li>Custom branding & inserts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-cta reveal">
+      <a href="#contact" class="btn btn-primary">Discuss packaging options <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
