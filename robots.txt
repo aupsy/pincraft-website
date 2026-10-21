@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pincraft.in/sitemap.xml
