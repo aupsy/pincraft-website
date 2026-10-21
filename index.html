@@ -89,7 +89,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <style>
 /* =========================================================
@@ -135,6 +135,7 @@ body {
 }
 
 img { max-width: 100%; display: block; }
+picture { display: contents; }
 a   { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 
@@ -1486,7 +1487,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
       </div>
 
       <div class="hero-visual reveal delay-2">
-        <img src="images/hero-tweezer-lifestyle.jpg" alt="A constellation of Pincraft beauty tools in gold and steel falling onto a pile" class="product-img main" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+        <picture>
+          <source srcset="images/hero-tweezer-lifestyle.webp" type="image/webp" />
+          <img src="images/hero-tweezer-lifestyle.jpg" alt="A constellation of Pincraft beauty tools in gold and steel falling onto a pile" class="product-img main" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" width="928" height="1152" fetchpriority="high" decoding="async" />
+        </picture>
         <div class="hero-badge">
           <div>
             <strong>27+</strong>
@@ -1553,7 +1557,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   <div class="container">
     <div class="about-grid">
       <div class="about-visual reveal">
-        <img src="images/heritage-workshop.jpg" alt="The Pincraft workshop heritage — craftsmen producing beauty implements" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+        <picture>
+          <source srcset="images/heritage-workshop.webp" type="image/webp" />
+          <img src="images/heritage-workshop.jpg" alt="The Pincraft workshop heritage — craftsmen producing beauty implements" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" width="928" height="1152" loading="lazy" decoding="async" />
+        </picture>
         <div class="since">
           <strong>1998</strong>
           <span>Established</span>
@@ -1602,7 +1609,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
       Every piece carries the same craft — whether it ships in a luxury retail box or a salon's bulk order.
     </blockquote>
   </div>
-  <img src="images/lifestyle-cuticle-pigments.jpg" alt="Pincraft gold cuticle pusher held beside dripping cosmetic pigments in pink, rose gold, and champagne" class="band-img" loading="lazy" />
+  <picture>
+    <source srcset="images/lifestyle-cuticle-pigments.webp" type="image/webp" />
+    <img src="images/lifestyle-cuticle-pigments.jpg" alt="Pincraft gold cuticle pusher held beside dripping cosmetic pigments in pink, rose gold, and champagne" class="band-img" width="1376" height="768" loading="lazy" decoding="async" />
+  </picture>
 </section>
 
 <!-- ===========================================================
@@ -1619,7 +1629,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
     <div class="cat-grid">
       <div class="cat-card reveal" id="cat-tweezers">
         <div class="cat-img-wrap">
-          <img src="images/product-tweezers.jpg" alt="Pincraft tweezer with dotted etched pattern on a dark background" />
+          <picture>
+            <source srcset="images/product-tweezers.webp" type="image/webp" />
+            <img src="images/product-tweezers.jpg" alt="Pincraft tweezer with dotted etched pattern on a dark background" width="896" height="1200" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="cat-meta">
           <h3>Tweezers</h3>
@@ -1630,7 +1643,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 
       <div class="cat-card reveal delay-1" id="cat-blackhead">
         <div class="cat-img-wrap">
-          <img src="images/product-blackhead-removers.jpg" alt="Pincraft double-ended blackhead remover in brushed stainless steel" />
+          <picture>
+            <source srcset="images/product-blackhead-removers.webp" type="image/webp" />
+            <img src="images/product-blackhead-removers.jpg" alt="Pincraft double-ended blackhead remover in brushed stainless steel" width="896" height="1200" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="cat-meta">
           <h3>Blackhead Removers</h3>
@@ -1641,7 +1657,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 
       <div class="cat-card reveal delay-2" id="cat-cuticle">
         <div class="cat-img-wrap">
-          <img src="images/product-cuticle-tools.jpg" alt="Pincraft cuticle pusher with gold finish and textured black grip" />
+          <picture>
+            <source srcset="images/product-cuticle-tools.webp" type="image/webp" />
+            <img src="images/product-cuticle-tools.jpg" alt="Pincraft cuticle pusher with gold finish and textured black grip" width="896" height="1200" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="cat-meta">
           <h3>Cuticle Tools</h3>
@@ -1652,7 +1671,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 
       <div class="cat-card reveal delay-3" id="cat-guasha">
         <div class="cat-img-wrap">
-          <img src="images/product-gua-sha.jpg" alt="Pincraft heart-shaped gua sha tool in polished stainless steel" />
+          <picture>
+            <source srcset="images/product-gua-sha.webp" type="image/webp" />
+            <img src="images/product-gua-sha.jpg" alt="Pincraft heart-shaped gua sha tool in polished stainless steel" width="896" height="1200" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="cat-meta">
           <h3>Gua Sha</h3>
@@ -1668,7 +1690,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
      LIFESTYLE BAND — Image 1 (tweezer in use, no overlay)
      =========================================================== -->
 <section class="lifestyle-band reveal" aria-label="Pincraft tweezers in use">
-  <img src="images/lifestyle-tweezer-brow.jpg" alt="Close-up of a model shaping her eyebrow with a gold Pincraft tweezer" class="band-img" loading="lazy" />
+  <picture>
+    <source srcset="images/lifestyle-tweezer-brow.webp" type="image/webp" />
+    <img src="images/lifestyle-tweezer-brow.jpg" alt="Close-up of a model shaping her eyebrow with a gold Pincraft tweezer" class="band-img" width="1376" height="768" loading="lazy" decoding="async" />
+  </picture>
 </section>
 
 <!-- ===========================================================
@@ -1686,7 +1711,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
       <!-- SOLITAIRE -->
       <div class="coll-row reveal">
         <div class="coll-image">
-          <img src="images/collection-solitaire-swarovski.jpg" alt="Pincraft Solitaire tweezer with three Swarovski crystals on a deep black background" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+          <picture>
+            <source srcset="images/collection-solitaire-swarovski.webp" type="image/webp" />
+            <img src="images/collection-solitaire-swarovski.jpg" alt="Pincraft Solitaire tweezer with three Swarovski crystals on a deep black background" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" width="1152" height="928" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="coll-text">
           <div class="coll-num">Collection 01</div>
@@ -1704,7 +1732,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
       <!-- ELEGANTE -->
       <div class="coll-row reverse reveal">
         <div class="coll-image">
-          <img src="images/collection-elegante-matt.jpg" alt="Pincraft Elegante tweezer with crystal floral motif on a deep black background" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+          <picture>
+            <source srcset="images/collection-elegante-matt.webp" type="image/webp" />
+            <img src="images/collection-elegante-matt.jpg" alt="Pincraft Elegante tweezer with crystal floral motif on a deep black background" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" width="1152" height="928" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="coll-text">
           <div class="coll-num">Collection 02</div>
@@ -1722,7 +1753,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
       <!-- BELLA -->
       <div class="coll-row reveal">
         <div class="coll-image">
-          <img src="images/collection-bella-etched.jpg" alt="Pincraft Bella tweezer with etched polka pattern on a deep black background" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+          <picture>
+            <source srcset="images/collection-bella-etched.webp" type="image/webp" />
+            <img src="images/collection-bella-etched.jpg" alt="Pincraft Bella tweezer with etched polka pattern on a deep black background" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" width="1152" height="928" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="coll-text">
           <div class="coll-num">Collection 03</div>
@@ -1823,7 +1857,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
       </div>
 
       <div class="global-map reveal delay-1">
-        <img src="images/global-map.jpg" alt="World map showing Pincraft client locations across Europe, North America, the Middle East, and Australia, with origin in northern India" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+        <picture>
+          <source srcset="images/global-map.webp" type="image/webp" />
+          <img src="images/global-map.jpg" alt="World map showing Pincraft client locations across Europe, North America, the Middle East, and Australia, with origin in northern India" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" width="1152" height="928" loading="lazy" decoding="async" />
+        </picture>
       </div>
     </div>
   </div>
@@ -1894,7 +1931,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
     <div class="pkg-grid">
       <div class="pkg-card reveal">
         <div class="pkg-img">
-          <img src="images/packaging-retail-box.jpg" alt="Pincraft retail boxes open showing tweezers inside" style="width:100%; height:260px; object-fit:cover; display:block;" />
+          <picture>
+            <source srcset="images/packaging-retail-box.webp" type="image/webp" />
+            <img src="images/packaging-retail-box.jpg" alt="Pincraft retail boxes open showing tweezers inside" style="width:100%; height:260px; object-fit:cover; display:block;" width="1264" height="848" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="pkg-body">
           <h3>Retail Box</h3>
@@ -1910,7 +1950,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 
       <div class="pkg-card reveal delay-1">
         <div class="pkg-img">
-          <img src="images/Packaging-card-backing.jpg" alt="Pincraft card backing retail packaging" style="width:100%; display:block;" />
+          <picture>
+            <source srcset="images/packaging-card-backing.webp" type="image/webp" />
+            <img src="images/packaging-card-backing.jpg" alt="Pincraft card backing retail packaging" style="width:100%; height:auto; display:block;" width="1264" height="848" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="pkg-body">
           <h3>Card Backing</h3>
@@ -1926,7 +1969,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 
       <div class="pkg-card reveal delay-2">
         <div class="pkg-img">
-          <img src="images/Gua Sha -Packaging.jpg" alt="Pincraft gua sha packaging with essential oils" style="width:100%; height:320px; object-fit:cover; object-position:right center; display:block;" />
+          <picture>
+            <source srcset="images/gua-sha-packaging.webp" type="image/webp" />
+            <img src="images/gua-sha-packaging.jpg" alt="Pincraft gua sha packaging with essential oils" style="width:100%; height:320px; object-fit:cover; object-position:right center; display:block;" width="1226" height="768" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="pkg-body">
           <h3>Gua Sha Packaging</h3>
@@ -1965,7 +2011,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
         </a>
       </div>
       <div class="cat-visual reveal delay-1">
-        <img src="images/catalog-spread.jpg" alt="Pincraft product catalog open to the cover and first page" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+        <picture>
+          <source srcset="images/catalog-spread.webp" type="image/webp" />
+          <img src="images/catalog-spread.jpg" alt="Pincraft product catalog open to the cover and first page" class="product-img" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" width="1264" height="848" loading="lazy" decoding="async" />
+        </picture>
       </div>
     </div>
   </div>
