@@ -3,6 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Consent Mode: analytics cookies stay off until the visitor accepts -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  var pcConsent = null;
+  try { pcConsent = localStorage.getItem('pincraft_consent'); } catch (e) {}
+  gtag('consent', 'default', {
+    analytics_storage: pcConsent === 'granted' ? 'granted' : 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -1447,6 +1461,49 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 .reveal.delay-1 { transition-delay: 0.1s; }
 .reveal.delay-2 { transition-delay: 0.2s; }
 .reveal.delay-3 { transition-delay: 0.3s; }
+/* =========================================================
+   COOKIE CONSENT BANNER
+   ========================================================= */
+.cookie-banner {
+  position: fixed;
+  left: 1rem; right: 1rem; bottom: 1rem;
+  z-index: 200;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 1.25rem 1.1rem 1.5rem;
+  background: var(--ink);
+  color: var(--beige-100);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(26,22,20,0.25);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-banner p { flex: 1; margin: 0; color: var(--beige-200); }
+.cookie-actions { display: flex; gap: 0.6rem; flex-shrink: 0; }
+.cookie-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.cookie-btn.accept { background: var(--rose); color: var(--beige-50); }
+.cookie-btn.accept:hover { background: var(--rose-deep); }
+.cookie-btn.decline { border: 1px solid rgba(242,235,226,0.35); color: var(--beige-100); }
+.cookie-btn.decline:hover { border-color: var(--beige-100); }
+.cookie-btn:focus-visible, .cookie-reopen:focus-visible { outline: 2px solid var(--rose-soft); outline-offset: 2px; }
+.cookie-reopen { color: var(--beige-200); font-size: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.cookie-reopen:hover { color: var(--rose-soft); }
+@media (max-width: 600px) {
+  .cookie-banner { flex-direction: column; align-items: stretch; gap: 0.85rem; left: 0.75rem; right: 0.75rem; bottom: 0.75rem; padding: 1rem 1.1rem; font-size: 0.82rem; }
+  .cookie-actions .cookie-btn { flex: 1; padding: 0.85rem 1.2rem; }
+}
 </style>
 </head>
 <body>
@@ -2184,7 +2241,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2026 Pincraft Industries LLP. All rights reserved.</div>
+      <div>© 2026 Pincraft Industries LLP. All rights reserved. · <button type="button" class="cookie-reopen">Cookie settings</button></div>
       <div class="footer-contact">
         <span>Haryana, India · <a href="mailto:info@pincraft.in">info@pincraft.in</a></span>
         <span class="footer-social">
@@ -2264,8 +2321,6 @@ document.getElementById('inquiry-form').addEventListener('submit', async functio
   status.style.display = 'block';
   if (data.success) {
     // Report the enquiry to Google Analytics (handled by the Google tag in GTM)
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
     gtag('event', 'generate_lead', { form_name: 'enquiry', interest: this.querySelector('#interest').value });
     status.style.color = 'var(--rose)';
     status.textContent = 'Thank you — we\'ll be in touch shortly.';
@@ -2277,6 +2332,34 @@ document.getElementById('inquiry-form').addEventListener('submit', async functio
   btn.disabled = false;
   btn.innerHTML = 'Send Enquiry <span class="arrow">→</span>';
 });
+</script>
+<!-- Cookie consent banner -->
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie consent" hidden>
+  <p>We use analytics cookies to understand how visitors use our site and improve it. You can accept or decline — the site works the same either way.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-btn decline" data-consent="denied">Decline</button>
+    <button type="button" class="cookie-btn accept" data-consent="granted">Accept</button>
+  </div>
+</div>
+<script>
+(function () {
+  var banner = document.getElementById('cookie-banner');
+  var stored = null;
+  try { stored = localStorage.getItem('pincraft_consent'); } catch (e) {}
+  if (stored !== 'granted' && stored !== 'denied') banner.hidden = false;
+
+  banner.addEventListener('click', function (e) {
+    var choice = e.target.getAttribute('data-consent');
+    if (!choice) return;
+    try { localStorage.setItem('pincraft_consent', choice); } catch (err) {}
+    gtag('consent', 'update', { analytics_storage: choice });
+    banner.hidden = true;
+  });
+
+  document.querySelectorAll('.cookie-reopen').forEach(function (btn) {
+    btn.addEventListener('click', function () { banner.hidden = false; banner.querySelector('.accept').focus(); });
+  });
+})();
 </script>
 </body>
 </html>
